@@ -1,0 +1,38 @@
+# Personal libraries, query history, credentials, validation downloads
+/data/
+/library/
+/validation/
+/tests/.tmp/
+/tests/tmp*/
+/%SystemDrive%/
+.env
+.env.*
+!.env.example
+*token*
+*credentials*
+gh-config/
+hosts.yml
+*.pem
+*.key
+# Generated binaries and local environments
+/dist/
+/build/
+/release/
+/releases/
+/backups/
+/.build-tools/
+.venv/
+__pycache__/
+*.py[cod]
+*.lnk
+*.log
+*.part
+*.tmp
+*.pdf
+# Local handoff/developer fixtures are not publication files
+/HANDOFF.md
+/CONTRACT.md
+/live_smoke.py
+/live_supplements_smoke.py
+/ui_smoke.py
+/manifest*.html

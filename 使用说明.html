@@ -1,0 +1,86 @@
+<!doctype html><html lang="zh-CN"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>文献港 0.2 · 使用说明</title><style>body{margin:0;background:#edf2f5;color:#203643;font:16px/1.85 "Microsoft YaHei",sans-serif}main{max-width:950px;margin:30px auto;padding:30px 48px;background:white;border-radius:16px}h1{color:#15394a;border-bottom:4px solid #087f8c;padding-bottom:14px}h2{font-size:23px;margin-top:32px}p,li,td{overflow-wrap:anywhere}a{color:#087f8c}table{border-collapse:collapse;width:100%;font-size:15px}th,td{border:1px solid #dce6eb;padding:10px;text-align:left}th{background:#edf5f6}</style><main><h1>文献港 PaperHarbor 0.2.0</h1>
+<p>面向英文数学与计算数学研究的 Windows 桌面检索与公开资料收集软件。更新日期：2026-10-28。</p>
+<h2>开始使用</h2>
+<ol>
+<li>本机双击桌面的「文献港 PaperHarbor」；便携包请先完整解压，再双击「启动文献港.cmd」。</li>
+<li>输入英文关键词、完整标题或 DOI，勾选自动检索来源，点击「搜索论文」。</li>
+<li>点击结果第一列的方框勾选要保存的论文。标题高亮只表示查看详情。</li>
+<li>检查保存目录，点击「下载所选正文 + 补充材料」。</li>
+<li>完成后可点「打开正文 PDF」或「查看下载结果」。报告会区分正文成功、未取得全文和附件状态。</li>
+</ol>
+<p>本机默认资料库为 D:\Codex\PaperHarbor\library；便携包默认保存在解压目录的 library。</p>
+<p>JSON 是来源、状态与校验记录，不是论文正文。仅生成 JSON 表示尚未取得可阅读的正文 PDF。</p>
+<h2>本版更新</h2>
+<ul>
+<li>自动检索来源扩展为 OpenAlex、arXiv、Crossref、OpenAIRE、HAL 和 Europe PMC。</li>
+<li>每次结果上限提高到 500，来源按需分页；「更多结果」扩大当前查询上限，保留可对应条目的勾选与下载状态。</li>
+<li>添加九家出版社网站补查入口，自动汇入结果与外部网站检索分区显示。</li>
+<li>显示期刊、出版社与 ISSN；可在当前结果中按期刊或出版社文字筛选。</li>
+<li>修复同名同年论文误合并、同一 arXiv 文献因 DOI 缺失而重复的问题，保留各来源及 PDF 版本信息。</li>
+<li>提供可阅读的 HTML 下载报告、正文打开入口和逐源网络状态。</li>
+</ul>
+<h2>自动检索与覆盖范围</h2>
+<table>
+<tr><th>来源</th><th>主要用途</th></tr>
+<tr><td>Crossref</td><td>出版社登记的期刊、图书、会议等 DOI 书目；是期刊覆盖的重要补充</td></tr>
+<tr><td>OpenAlex</td><td>跨学科学术索引、引用信息和公开版本线索</td></tr>
+<tr><td>arXiv</td><td>数学及相关学科预印本</td></tr>
+<tr><td>OpenAIRE</td><td>研究成果与机构仓储聚合</td></tr>
+<tr><td>HAL</td><td>法国开放学术仓储，包含数学及相关研究</td></tr>
+<tr><td>Europe PMC</td><td>生命科学与医学，适合生物数学等交叉主题</td></tr>
+</table>
+<p>旧版配置按版本补选来源：v1 补选 OpenAIRE 与 Crossref，v2 仅补选 Crossref；此后保存的选择会保留。HAL、Europe PMC 可按研究方向勾选。</p>
+<p>学术索引可能收录 Elsevier、Springer Nature、Wiley、SIAM、AMS 等出版平台的论文，但收录范围、元数据字段和更新速度各不相同。收录一条书目不等于拥有全文权限。</p>
+<p>每个来源最多按本次上限取得候选，最终列表合并去重后最多 500 条。达到上限、分页中断和使用缓存都会在逐源状态中显示。来源返回的总量采用各自搜索口径，不能直接相加，也不是去重后的文献总量。当前结果中的期刊/出版社筛选不会向远端发起新查询。</p>
+<p>要提高覆盖面，可勾选多个合适来源，再按同义词、完整标题及年份分别检索；超过 500 条时分年份或收窄主题。一次查询不代表穷尽检索。普通关键词通常最便于跨来源搜索，复杂布尔式与字段语法在各来源不保证等价。</p>
+<p>缓存有效 24 小时；失败时可能恢复旧缓存，界面会明确标注。网络中断或限流不影响其他来源已取得的结果。点击「查看各来源状态」可查看逐源数量、分页状态及错误原因。</p>
+<h2>出版社网站补查</h2>
+<p>界面中的「出版社网站补查」提供以下官方入口：</p>
+<ul>
+<li>Elsevier / ScienceDirect</li>
+<li>Springer Nature Link</li>
+<li>Wiley Online Library</li>
+<li>SIAM Publications</li>
+<li>AMS 期刊入口</li>
+<li>Cambridge Core</li>
+<li>Oxford Academic</li>
+<li>Taylor &amp; Francis</li>
+<li>De Gruyter Brill</li>
+</ul>
+<p>这些按钮打开浏览器进行补充检索，网站结果不会自动进入软件列表。大部分入口携带当前关键词；AMS 使用官方期刊门户，请先点击复制关键词，再在站内搜索。年份、排序及其他条件需在网站内设置。网站可能需要浏览器验证或机构访问权限。</p>
+<h2>正文与补充材料</h2>
+<p>程序同时尝试公开正文 PDF 与公开补充材料。下载后检查文件格式并解析 PDF 页面，HTML 登录页不会被当作正文。</p>
+<p>期刊记录可能只找到预印本或作者接收稿；详情中的 PDF 版本和出处应一并查看。</p>
+<p>附件支持 PDF、ZIP、CSV、UTF-8/UTF-16 TXT、XLSX、DOCX 和常见图片。ZIP 只做校验，不解压或执行其中内容。正文最大 64 MB，单个附件最大 32 MB，每篇最多自动检查三个落地页、取得八个附件。</p>
+<table>
+<tr><th>提示</th><th>含义</th></tr>
+<tr><td>正文已下载 / 已存在</td><td>下载流程完成文件格式验证</td></tr>
+<tr><td>未找到公开正文</td><td>没有取得本程序可用的公开正文候选，不表示论文不存在</td></tr>
+<tr><td>正文下载失败</td><td>存在候选，但请求或格式校验未成功</td></tr>
+<tr><td>附件未识别到直链</td><td>已检查页面未识别到支持的链接，不代表没有附件</td></tr>
+<tr><td>附件检查未完成</td><td>超时、访问受限或仍需手动查看</td></tr>
+<tr><td>附件部分完成</td><td>已保存部分文件，仍有未完成项目</td></tr>
+</table>
+<p>再次下载会复验已有文件并跳过有效文件；损坏文件保留，新文件另存。取消会保留已完成文件；未完成文件下次重试，不支持字节续传。「勾选失败项」可选中需重试的条目。关闭正在下载的窗口，会先取消并保存批次状态。</p>
+<p>报告生成时，仅对仍存在且通过 PDF 文件头检查的正文显示打开链接；生成后移动或删除文件不会自动更新报告。程序仅访问公开链接，不绕过登录、付费或访问限制。</p>
+<h2>引用与本地数据</h2>
+<p>「导出 CSV / BibTeX / RIS」只导出勾选条目，另附 JSON 来源记录；下载时也会自动导出。</p>
+<p>导出区分期刊、预印本、图书和章节。正式引用前仍需核对作者、卷期页码及年份。</p>
+<ul>
+<li>dist/PaperHarbor：独立 EXE 及运行库，必须保持完整。</li>
+<li>assets：应用图标。</li>
+<li>data：个人设置、结果与缓存，不包含在新便携包中。</li>
+<li>library：下载资料，不包含在新便携包中。</li>
+<li>README.md / 使用说明.html：使用说明。</li>
+<li>HANDOFF.md、tests、validation、build：源码项目的维护与验证文件。</li>
+</ul>
+<p>本机更新保留 data 与 library。便携包无需 Python 或 Codex。已有桌面快捷方式指向本机项目目录；移动项目后需重新创建。</p>
+<h2>开发与验证</h2>
+<p>源码使用 Python 3.12，安装 requirements.txt 后可运行 launch.pyw。</p>
+<p>离线测试：python -X utf8 -m unittest discover -s tests -v</p>
+<p>构建：python build_package.py --wait</p>
+<p>构建到暂存位置：python build_package.py --wait --dist-dir &lt;暂存目录&gt;</p>
+<p>独立包检查：PaperHarbor.exe --self-check；加 --offline 可跳过联网。</p>
+<p>自检在 validation 下隔离设置，不依赖先前的搜索缓存，不覆盖用户设置。</p>
+<p>Windows 打包时保留运行时原有 TLS 证书配置，启用正常 HTTPS 校验。</p>
+<p>官方参考：<a href="https://docs.openalex.org/">OpenAlex</a>、<a href="https://info.arxiv.org/help/api/user-manual.html">arXiv</a>、<a href="https://www.crossref.org/documentation/retrieve-metadata/rest-api/">Crossref</a>、<a href="https://graph.openaire.eu/develop/api.html">OpenAIRE</a>、<a href="https://api.archives-ouvertes.fr/docs/search">HAL</a>、<a href="https://europepmc.org/RestfulWebService">Europe PMC</a>。</p></main></html>
